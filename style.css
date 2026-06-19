@@ -37,10 +37,19 @@ header {
 }
 
 .todo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: blue;
     border-radius: 10px;
     text-align: center;
     padding: 15px;
+}
+
+#chgBtn {
+    background-color: green;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 main {
