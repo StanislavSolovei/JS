@@ -39,7 +39,6 @@ header {
 .todo {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     background-color: blue;
     border-radius: 10px;
     text-align: center;
@@ -52,6 +51,13 @@ input {
 
 #chgBtn {
     background-color: green;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: auto;
+}
+
+#resBtn {
+    background-color: red;
     border-radius: 10px;
     padding: 10px;
 }

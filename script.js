@@ -6,18 +6,22 @@ const containerTasks = document.querySelector(".right");
 
 function renderTasks() {
     containerTasks.textContent = "";
-    tasks.forEach((task) => {
+    tasks.forEach((task, index) => {
         let changed = false;
         let userText = "";
         const section = document.createElement("section");
         const paragraf = document.createElement("p");
         const chgBtn = document.createElement("button");
+        const resBtn = document.createElement("button");
         chgBtn.id = "chgBtn";
         chgBtn.textContent = "Изменить";
+        resBtn.id = "resBtn";
+        resBtn.textContent = "Удалить";
         paragraf.textContent = task.text;
         section.classList.add("todo");
         section.appendChild(paragraf);
         section.appendChild(chgBtn);
+        section.appendChild(resBtn);
         containerTasks.appendChild(section);
 
         chgBtn.addEventListener('click', () => {
@@ -37,6 +41,13 @@ function renderTasks() {
                 changed = false;
             }
             
+        });
+
+        resBtn.addEventListener('click', () => {
+            tasks.splice(index, 1);
+            section.remove();
+            console.log(tasks);
+            renderTasks();
         });
 
     });
