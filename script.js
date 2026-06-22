@@ -7,6 +7,8 @@ const containerTasks = document.querySelector(".right");
 function renderTasks() {
     containerTasks.textContent = "";
     tasks.forEach((task) => {
+        let changed = false;
+        let userText = "";
         const section = document.createElement("section");
         const paragraf = document.createElement("p");
         const chgBtn = document.createElement("button");
@@ -19,10 +21,24 @@ function renderTasks() {
         containerTasks.appendChild(section);
 
         chgBtn.addEventListener('click', () => {
-            const chgTask = prompt("Измени задачу");
-            task.text = chgTask;
-            renderTasks();
+            if(changed === false){
+                paragraf.textContent = "";
+                const input = document.createElement("input");
+                input.type = "text";
+                input.value = task.text;
+                input.addEventListener('input', () => {
+                    userText = input.value;
+                });
+                paragraf.appendChild(input);
+                changed = true;
+            } else {
+                task.text = userText;
+                paragraf.textContent = userText;
+                changed = false;
+            }
+            
         });
+
     });
 }
 
