@@ -17,6 +17,12 @@ function renderTasks() {
         section.appendChild(paragraf);
         section.appendChild(chgBtn);
         containerTasks.appendChild(section);
+
+        chgBtn.addEventListener('click', () => {
+            const chgTask = prompt("Измени задачу");
+            task.text = chgTask;
+            renderTasks();
+        });
     });
 }
 
@@ -28,10 +34,5 @@ addTask.addEventListener('click', () => {
     tasks.push(newTask);
     renderTasks();
 });
-
-  chgBtn.addEventListener('click', () => {
-            const chgTask = prompt("Измени задачу");
-            newTask = chgTask
-        });
 
 renderTasks();
